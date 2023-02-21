@@ -1,20 +1,20 @@
-const input = "abacdbec";
+const input = "ablxcdazdbece";
 
-const getFirstNotRepeat = (input) => {
+const myFunc = (input) => {
   const arr = Array.from(input);
-  let temp;
-  for (let i = 0; i < arr.length; i += 1) {
-    for (let j = 1; j < arr.length; j += 1) {
-      if (arr[i] !== arr[j]) {
-        temp = arr[i];
-        if (arr[i] === arr[j]) {
-          console.log(temp, "temp");
-          temp = "";
-        }
-      }
+  const sort = arr.sort();
+  let res = "";
+
+  let i = 0;
+  while (i < sort.length) {
+    if (sort[i] === sort[i + 1]) {
+      i += 2;
+    }
+    else if (sort[i] !== sort[i + 1]) {
+      res = sort[i];
+      break
     }
   }
-  return temp;
+  return res;
 };
-
-console.log(getFirstNotRepeat(input));
+console.log(myFunc(input));

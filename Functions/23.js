@@ -1,20 +1,27 @@
-const input = "axbbac";
+const input = "abacddbec";
+const arr = Array.from(input);
+const finalArray = [];
 
-const myFunc = (input) => {
-  const arr = Array.from(input);
-  const sort = arr.sort();
-  let res = "";
-
-  let i = 0;
-  while (i < sort.length) {
-    if (sort[i] === sort[i + 1]) {
-      i += 2;
-    }
-    else if (sort[i] !== sort[i + 1]) {
-      res = sort[i];
-      break
+const getFirstNonRepetive = (arr) => {
+  const replacer = "*";
+  for (let i = 0; i < arr.length; i += 1) {
+    for (let j = arr.length - 1; j > i; j -= 1) {
+      if (arr[i] === arr[j]) {
+        let temp = arr[i];
+        for (let k = 0; k < arr.length; k += 1) {
+          if (arr[k] === temp) {
+            arr[k] = "*";
+          }
+        }
+        temp = "";
+      }
     }
   }
-  return res;
+
+  for (let i = 0; i < arr.length; i += 1) {
+    if (arr[i] !== replacer) finalArray.push(arr[i]);
+  }
+  return finalArray[0];
 };
-console.log(myFunc(input));
+
+console.log(getFirstNonRepetive(arr));

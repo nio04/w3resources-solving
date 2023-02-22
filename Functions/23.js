@@ -1,4 +1,4 @@
-const input = "ablxcdazdbece";
+const input = "axbbac";
 
 const myFunc = (input) => {
   const arr = Array.from(input);

@@ -1,19 +1,19 @@
-const input = "Nishat islam";
-const t = input.indexOf("i");
+const input = "linus journey";
 
-console.log(t);
-
-
-const camelCase = (input) => {
-  let temp = input
+const camelMe = (input) => {
   const arr = Array.from(input);
-  for (let i = 0; i < arr.length; i += 1) {
-    if (arr[i] === " ") {
-     temp =  temp.replace(temp.indexOf(temp[i+1]),temp[i+1].toUpperCase())
-    //   arr.splice(arr.indexOf(" "), 1);
+  if (input.split(" ").length < 3) {
+    for (let i = 0; i < arr.length; i += 1) {
+      if (arr[i] === " ") {
+        arr[i] = "";
+        const temp = arr[i + 1];
+        arr[i + 1] = arr[i + 1].toUpperCase();
+      }
     }
+  } else {
+    return "length is grater than 2"
   }
-  return temp;
+  return arr.toString().replaceAll(",", "");
 };
 
-console.log(camelCase(input));
+console.log(camelMe(input));
